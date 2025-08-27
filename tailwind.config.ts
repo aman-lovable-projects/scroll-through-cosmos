@@ -24,6 +24,26 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				/* Space Journey Colors */
+				'solar-core': 'hsl(var(--solar-core))',
+				'solar-corona': 'hsl(var(--solar-corona))',
+				'inner-space': 'hsl(var(--inner-space))',
+				'mid-space': 'hsl(var(--mid-space))',
+				'deep-space': 'hsl(var(--deep-space))',
+				'cosmic-purple': 'hsl(var(--cosmic-purple))',
+				'stellar-blue': 'hsl(var(--stellar-blue))',
+				
+				/* Planet Glow Colors */
+				'mercury-glow': 'hsl(var(--mercury-glow))',
+				'venus-glow': 'hsl(var(--venus-glow))',
+				'earth-glow': 'hsl(var(--earth-glow))',
+				'mars-glow': 'hsl(var(--mars-glow))',
+				'jupiter-glow': 'hsl(var(--jupiter-glow))',
+				'saturn-glow': 'hsl(var(--saturn-glow))',
+				'uranus-glow': 'hsl(var(--uranus-glow))',
+				'neptune-glow': 'hsl(var(--neptune-glow))',
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -84,11 +104,35 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'twinkle': {
+					'0%': { opacity: '0.3' },
+					'100%': { opacity: '1' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						boxShadow: '0 0 20px currentColor, 0 0 40px currentColor, 0 0 80px currentColor'
+					},
+					'50%': { 
+						boxShadow: '0 0 40px currentColor, 0 0 80px currentColor, 0 0 120px currentColor'
+					}
+				},
+				'parallax-slow': {
+					'0%': { transform: 'translateY(0px)' },
+					'100%': { transform: 'translateY(-50px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'twinkle': 'twinkle 3s ease-in-out infinite alternate',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+				'parallax-slow': 'parallax-slow 20s ease-out infinite'
 			}
 		}
 	},

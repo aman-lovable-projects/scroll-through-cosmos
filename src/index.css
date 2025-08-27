@@ -2,41 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Solar System Design System - Colors transition from Sun to deep space */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Space Journey Color Palette */
+    --solar-core: 45 100% 65%;        /* Bright solar yellow */
+    --solar-corona: 35 100% 50%;      /* Solar orange */
+    --inner-space: 220 25% 15%;       /* Inner planet space */
+    --mid-space: 240 35% 8%;          /* Outer planet space */
+    --deep-space: 260 50% 5%;         /* Deep cosmic black */
+    --cosmic-purple: 280 60% 25%;     /* Nebula purple */
+    --stellar-blue: 220 80% 40%;      /* Stellar blue */
+    
+    /* Planet Specific Colors */
+    --mercury-glow: 30 80% 60%;
+    --venus-glow: 45 90% 55%;
+    --earth-glow: 200 100% 50%;
+    --mars-glow: 15 85% 45%;
+    --jupiter-glow: 25 70% 50%;
+    --saturn-glow: 40 60% 65%;
+    --uranus-glow: 180 70% 60%;
+    --neptune-glow: 220 90% 55%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Base System Colors */
+    --background: 260 50% 5%;         /* Deep space background */
+    --foreground: 0 0% 95%;           /* Light text */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: 240 35% 8%;               /* Card background */
+    --card-foreground: 0 0% 90%;      /* Card text */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: 240 35% 8%;
+    --popover-foreground: 0 0% 90%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: 220 80% 40%;           /* Stellar blue */
+    --primary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 240 20% 20%;
+    --secondary-foreground: 0 0% 85%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 20% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 280 60% 25%;            /* Cosmic purple */
+    --accent-foreground: 0 0% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --radius: 0.5rem;
+    --border: 240 30% 20%;
+    --input: 240 30% 15%;
+    --ring: 220 80% 40%;
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +119,182 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+/* Space Journey Gradients and Effects */
+@layer components {
+  .space-gradient-sun {
+    background: radial-gradient(circle at center, 
+      hsl(var(--solar-core)) 0%, 
+      hsl(var(--solar-corona)) 40%, 
+      hsl(var(--inner-space)) 100%);
+  }
+  
+  .space-gradient-inner {
+    background: linear-gradient(180deg, 
+      hsl(var(--inner-space)) 0%, 
+      hsl(var(--mid-space)) 100%);
+  }
+  
+  .space-gradient-outer {
+    background: linear-gradient(180deg, 
+      hsl(var(--mid-space)) 0%, 
+      hsl(var(--deep-space)) 100%);
+  }
+  
+  .space-gradient-deep {
+    background: radial-gradient(ellipse at center, 
+      hsl(var(--cosmic-purple)) 0%, 
+      hsl(var(--deep-space)) 60%, 
+      black 100%);
+  }
+
+  .planet-glow-mercury { 
+    box-shadow: 0 0 80px hsl(var(--mercury-glow) / 0.3), 
+                0 0 160px hsl(var(--mercury-glow) / 0.1); 
+  }
+  .planet-glow-venus { 
+    box-shadow: 0 0 80px hsl(var(--venus-glow) / 0.3), 
+                0 0 160px hsl(var(--venus-glow) / 0.1); 
+  }
+  .planet-glow-earth { 
+    box-shadow: 0 0 80px hsl(var(--earth-glow) / 0.3), 
+                0 0 160px hsl(var(--earth-glow) / 0.1); 
+  }
+  .planet-glow-mars { 
+    box-shadow: 0 0 80px hsl(var(--mars-glow) / 0.3), 
+                0 0 160px hsl(var(--mars-glow) / 0.1); 
+  }
+  .planet-glow-jupiter { 
+    box-shadow: 0 0 80px hsl(var(--jupiter-glow) / 0.3), 
+                0 0 160px hsl(var(--jupiter-glow) / 0.1); 
+  }
+  .planet-glow-saturn { 
+    box-shadow: 0 0 80px hsl(var(--saturn-glow) / 0.3), 
+                0 0 160px hsl(var(--saturn-glow) / 0.1); 
+  }
+  .planet-glow-uranus { 
+    box-shadow: 0 0 80px hsl(var(--uranus-glow) / 0.3), 
+                0 0 160px hsl(var(--uranus-glow) / 0.1); 
+  }
+  .planet-glow-neptune { 
+    box-shadow: 0 0 80px hsl(var(--neptune-glow) / 0.3), 
+                0 0 160px hsl(var(--neptune-glow) / 0.1); 
+  }
+
+  .starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+
+  .star-small {
+    width: 1px;
+    height: 1px;
+    opacity: 0.8;
+  }
+
+  .star-medium {
+    width: 2px;
+    height: 2px;
+    opacity: 0.6;
+  }
+
+  .star-large {
+    width: 3px;
+    height: 3px;
+    opacity: 0.4;
+  }
+
+  .planet-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 4rem 2rem;
+  }
+
+  .planet-content {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .planet-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  .parallax-element {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+@layer utilities {
+  .text-space-title {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-space-subtitle {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .text-space-body {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px currentColor,
+                0 0 40px currentColor,
+                0 0 80px currentColor;
+  }
+  50% { 
+    box-shadow: 0 0 40px currentColor,
+                0 0 80px currentColor,
+                0 0 120px currentColor;
   }
 }
